@@ -7,8 +7,8 @@ pipeline {
         stage('Build') {
             steps {
                 git 'https://github.com/ScarlettQnR/test2'
-//                 bat 'mvn clean compile'
-                bat returnStatus: true, script: 'mvn clean compile'
+                sh 'mvn clean compile'
+
             }
         }
 
