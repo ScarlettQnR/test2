@@ -14,15 +14,19 @@ pipeline {
 
         stage('build') {
         steps{
+
+         def cmd_exec(command) {
+                    return bat(returnStdout: true, script: "${command}").trim()
+                }
+
+
         git 'https://github.com/ScarlettQnR/test2'
               cmd_exec('echo "Buils starting..."')
               cmd_exec('mvn clean compile')
         }
 
 
-        def cmd_exec(command) {
-            return bat(returnStdout: true, script: "${command}").trim()
-        }
+
 
 //
 //         stage('Test') {
